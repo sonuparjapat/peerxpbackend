@@ -8,9 +8,9 @@ postRouter.get("/posts",async(req,res)=>{
 const {page,limit,name,date}=req.query
 
 let query={}
-if(authorId){
-    query.authorId=authorId
-}
+// if(authorId){
+//     query.authorId=authorId
+// }
 if(name){
     query.name=name
 }

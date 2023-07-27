@@ -9,6 +9,7 @@ if(token){
         jwt.verify(token.split(" ")[1], 'masai', function(err, decoded) {
          if(decoded){
             req.body.authorId=decoded.authorId
+            req.body.createdby=decoded.createdby
             next()
          }else{
             res.status(400).json({msg:"Token Expired/Wrong Token"})
