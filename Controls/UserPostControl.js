@@ -39,6 +39,8 @@ res.status(200).json({"data":data,"totalpages":Math.ceil((maindata.length)/limit
 
 postRouter.post("/postdata",async(req,res)=>{
     req.body.time=Date.now()
+    req.body.updatedtime=Date.now()
+    
     try{
         const data=new userpostModel(req.body)
         await data.save()
@@ -67,10 +69,11 @@ if(data.authorId==authorId){
 postRouter.patch("/updatedata/:id",async(req,res)=>{
 
 
-req.body.time=Date.now()
+// req.body.time=Date.now()
     const {id}=req.params
-const {authorId}=req.body
-
+const {updatedtime,time,authorId}=req.body
+req.body.time=updatedtime
+req.body.updatedtime=Date.now()
 
 const data=await userpostModel.findOne({"_id":id})
     try{

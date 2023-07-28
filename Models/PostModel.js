@@ -7,6 +7,7 @@ category:String,
 amount:Number,
 date:String,
 time:String,
+updatedtime:String,
 createdby:String,
 authorId:{type:String,required:true}
 })
