@@ -24,7 +24,7 @@ if(page&&limit){
     try{
       
 const data=await userpostModel.find(query).skip((limit*page)-limit).limit(limit)
-res.status(200).json({"data":data,"totalpages":Math.ceil((maindata.length)/limit)})
+res.status(200).json({"data":data,"totalpages":Math.ceil((maindata.length)/limit),length:maindata.length})
     }catch(err){
         res.status(400).json({msg:"somthing going wrong"})
     }
