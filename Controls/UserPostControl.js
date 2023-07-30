@@ -12,7 +12,7 @@ let query={}
 //     query.authorId=authorId
 // }
 if(name){
-    query.name=name
+    query.name={ $regex: name }
 }
 
 if(date){
